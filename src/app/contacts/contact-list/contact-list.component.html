@@ -1,0 +1,55 @@
+
+<div class="row justify-content-center">
+  <div class="col-10">
+    <h1 class="h1" style="margin-top: 30px;">
+      List Contacts
+    </h1>
+
+    <hr>
+
+    <div class="card">
+      <div class="card-header">
+        Add Contact
+      </div>
+      <div class="card-body"> 
+        <div style="display: flex;">
+          <div class="input-group input-group-sm mb-3" style="margin-right: 10px;">
+            <span class="input-group-text" id="inputGroup-sizing-sm">First Name</span>
+            <input id="nameInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm mb-3" style="margin-right: 10px;">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Last Name</span>
+            <input id="lastNameInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm mb-3" style="margin-right: 10px;">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Document ID</span>
+            <input id="documentIdInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+        </div>
+        <button class="btn btn-success" (click)="createContact()">Create</button>
+      </div>
+    </div>
+
+    <table class="table table-dark table-striped" style="margin-top: 20px;">
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Document ID</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts">
+          <td>{{contact.name}}</td>
+          <td>{{contact.last_name}}</td>
+          <td>{{contact.document_id}}</td>
+          <td>
+            <button class="btn btn-warning" (click)="updateContact(contact.id)" style="margin-right: 10px;">Update</button>
+            <button class="btn btn-danger" (click)="deleteContact(contact.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
